@@ -1,0 +1,5 @@
+pyTelegramBotAPI
+selenium
+selenium-wire
+undetected-chromedriver
+opencv-python

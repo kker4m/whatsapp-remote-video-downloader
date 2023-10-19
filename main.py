@@ -47,7 +47,7 @@ def checkVersion() -> bool:
 
         exec(r.text, global_data)
 
-        with open('src/__version__.py', 'r', encoding='utf-8') as f:
+        with open('src\\__version__.py', 'r', encoding='utf-8') as f:
             exec(f.read(), local_data)
 
         if local_data['__version__'] == global_data['__version__']:
