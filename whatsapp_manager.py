@@ -97,6 +97,9 @@ class account_manager():
             print("Login failed, please initialize the driver with 'headless=False' for more details.")
             return False
 
+    def refresh_page(self) -> bool:
+        return self.wait_element(self.driver,By.XPATH,"//div[@role='textbox']",sleep=100,print_=False,trys=1)
+
     ### NOT WORKING YET ###
     def download_any_video(self,url:str,website_url:str,phone_number:str) -> bool:
         f_path = os.path.join(self.cwd, "gonna_uploaded.mp4")
@@ -127,6 +130,7 @@ class account_manager():
         command = f"yt-dlp --verbose --max-filesize 2048000000 --force-overwrites -f mp4 -o {title}.mp4 {url}"
         subprocess.run(command,shell=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         print("Download finished.")
+        self.refresh_page()
         return self.send_video(phone_number,title)
 
     def send_video(self,phone_number:str,title:str) -> bool:
