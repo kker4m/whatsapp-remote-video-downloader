@@ -7,10 +7,11 @@ import queue
 with open("bot_token.json", "r") as f:
     data = json.load(f)
     token = data["token"]
+    password = data["password"]
 
 bot = telebot.TeleBot(token)
 
-correct_password = 'PASSWORD'
+correct_password = password
 
 # İşlem sırasını takip etmek için bir işlem kuyruğu oluşturun
 task_queue = queue.Queue()
